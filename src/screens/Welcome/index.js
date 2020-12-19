@@ -5,7 +5,7 @@ import {
   TextBold,
   Container
 } from './styles';
-import { Button } from '../../assets/Buttons/blue';
+import { Button } from '../../assets/Button';
 
 function Welcome() {
   return (
