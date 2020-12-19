@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../theme';
 
-
 export const Blue = {
   bg: colors.primary,
   color: colors.white,
@@ -29,13 +28,12 @@ export const Yellow = {
   borderHover: colors.dark_gray,
 }
 
-
 export const Button = styled.button`
-  background-color: ${props => props.btnColor.bg  || Blue.bg};
+  background-color: ${props => props.btnColor.bg || Blue.bgf};
   color:  ${props => props.btnColor.color || Blue.color}; 
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   align-items: center;

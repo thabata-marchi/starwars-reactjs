@@ -1,19 +1,23 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
   Title, 
   Subtitle,
   TextBold,
-  Container
+  Content, 
 } from './styles';
-import { Button } from '../../assets';
+
+import { Button, Blue } from '../../assets';
 
 function Welcome() {
   return (
-    <Container>
+    <Content>
       <Title>Welcome to <TextBold>iClinic</TextBold></Title>
       <Subtitle>FRONTEND CHALLENGE</Subtitle>
-      <Button>START</Button>
-    </Container>
+      <Link to="/win-side">
+        <Button btnColor={Blue}>START</Button>
+      </Link>
+    </Content>
   );
 }
 
