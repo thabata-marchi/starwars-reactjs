@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { GlobalStyle } from './assets/global-styles'
 
+import './index.css';
+import { GlobalStyle } from './assets';
 
 import Welcome from '../src/screens/Welcome';
+import WinSide from '../src/screens/WinSide';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Welcome />
+    <WinSide />
     <GlobalStyle />
   </React.StrictMode>,
   document.getElementById('root')
