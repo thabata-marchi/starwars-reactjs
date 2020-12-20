@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 
 import { HiArrowLeft } from "react-icons/hi";
-
 
 import {
   Text,
   TextBold,
-  Icon,
   Back,
 } from './styles';
 
 import { 
   Image,
+  Icon,
+  DarthVader,
+  LukeSkywalker,
   Button,
   Black,
   Yellow,
@@ -23,57 +23,34 @@ import {
   Darth,
 } from '../../assets';
 
-import DarthVader from '../../assets/svg/darth-vader.svg';
-import LukeSkywalker from '../../assets/svg/luke-skywalker.svg';
-// import IconBack from '../../assets/svg/back.svg';
+import { store } from '../../store/';
 
+import DarthVaderSVG from '../../assets/svg/darth-vader.svg';
+import LukeSkywalkerSVG from '../../assets/svg/luke-skywalker.svg';
 
 function WinSide() {
-  const [luke, setLuke] = useState([]);
-  const [darth, setDarth] = useState([]);
+  const history = useHistory();
+  const globalState = useContext(store);
+  const {dataWinner} = globalState;
 
-  useEffect(() => {
-    api.ConnectApiLuke()
-    .then(response => {
-      if( response.status === 200 ){
-        setLuke(response.data);
-        console.log("LUKE", response);
-      }
-  })
-    .catch( error => console.log("AQUI DEU RUIM",error) )
-  }, [])  
-
-  useEffect(() => {
-    api.ConnectApiDarth()
-    .then(response => {
-      if( response.status === 200 ){
-        setDarth(response.data);
-        console.log("DARTH", response);
-      }
-  })
-    .catch( error => console.log("AQUI DEU RUIM",error) )
-  }, [])  
+  console.log("dataWinner", dataWinner); 
+  
+  const GoBack = () => {
+    history.push("/");
+  }
+ 
 
   return ( 
     <>
-      <Link to="/">
-        <Icon>
-          <HiArrowLeft /> 
-          <Back>back</Back>
-        </Icon>
-      </Link>
+    <Icon iconColor={ dataWinner.name === "Darth Vader" ? DarthVader : LukeSkywalker} onClick={GoBack}>
+      <HiArrowLeft /> 
+      <Back>back</Back>
+    </Icon>
 
-    <Container bgColor={Darth}>
-
-      <Button btnColor={Black}>choose your path again, Padawan</Button>
-      <Image src={DarthVader} alt="Darth Vader" />      
-      <Text>Your master is <TextBold>{darth.name}</TextBold></Text>
-    </Container>
-
-    <Container bgColor={Luke}>
-      <Button btnColor={Yellow}>choose your path again, Padawan</Button>
-      <Image src={LukeSkywalker} alt="Luke Skywalker" />      
-      <Text colorLuke={LukeColor}>Your master is <TextBold>{luke.name}</TextBold></Text>
+    <Container bgColor={ dataWinner.name === "Darth Vader" ? Darth : Luke}>
+      <Button btnColor={dataWinner.name === "Darth Vader" ? Black : Yellow}>choose your path again, Padawan</Button>
+      <Image src={dataWinner.name === "Darth Vader" ? DarthVaderSVG : LukeSkywalkerSVG} alt="Darth Vader" />      
+      <Text colorLuke={dataWinner.name === "Darth Vader" ? null : LukeColor} >Your master is <TextBold>{dataWinner.name}</TextBold></Text>
     </Container>
 
     </>

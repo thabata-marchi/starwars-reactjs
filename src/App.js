@@ -1,8 +1,14 @@
 import React from 'react';
 import Routes from './routes';
 
+import { StateProvider } from "./store/";
+
 function App() {
-  return <Routes />
+  return (
+    <StateProvider>
+      <Routes />
+    </StateProvider>
+  )
 }
 
 export default App;
