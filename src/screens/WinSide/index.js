@@ -32,13 +32,10 @@ function WinSide() {
   const history = useHistory();
   const globalState = useContext(store);
   const {dataWinner} = globalState;
-
-  console.log("dataWinner", dataWinner); 
   
   const GoBack = () => {
     history.push("/");
   }
- 
 
   return ( 
     <>

@@ -13,4 +13,5 @@ export const Icon = styled.div`
   justify-content: first;
   position: absolute;
   padding: 10px;
+  cursor: pointer;
 `

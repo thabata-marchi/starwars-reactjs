@@ -47,4 +47,15 @@ export const Button = styled.button`
     color:  ${props => props.btnColor.colorHover || Blue.colorHover}; 
     border: 1px solid ${props => props.btnColor.borderHover || Blue.borderHover};
   }
+  @media (max-width: 610px) {
+    position: absolute;
+    bottom: 20%;
+    margin: 0 5%;
+  }
+  @media (max-width: 380px) {
+    position: absolute;
+    bottom: 60px;
+    padding: 10px;
+  }
+
 `

@@ -7,6 +7,10 @@ export const Text = styled.h1`
   font-family: Montserrat;
   font-weight: 400;
   line-height: 44px;
+  @media (max-width: 610px) {
+    margin: 0 5%;
+  }
+
 `
 export const TextBold = styled.strong`
   font-weight: 700;

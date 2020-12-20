@@ -13,4 +13,9 @@ export const Container = styled.div`
   background-color: ${props => props.bgColor || colors.white};
   min-height: 100vh;
   justify-content: space-around;
+
+  @media (max-width: 610px) {
+    justify-content: flex-start;
+  }
+
 `

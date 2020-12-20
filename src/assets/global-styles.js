@@ -4,8 +4,10 @@ export const GlobalStyles = createGlobalStyle`
    * {
       margin: 0;
       padding: 0;
-      border: 0;
-      outline: 0;
+      list-style: none;
+      text-decoration:none;
+      border: none;
+      outline: none;
    }
 
    @font-face {
