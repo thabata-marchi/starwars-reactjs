@@ -10,16 +10,16 @@ import {
 } from './styles';
 
 import { store } from '../../store/';
-
 import { Button, Blue } from '../../assets';
 
 const Welcome = () => {
   const history = useHistory();
   const globalState = useContext(store);
-  const {setData} = globalState;
+  const {setData, setLoad} = globalState;
 
   const GoWinner = (params) => {
     setData(params);
+    setLoad(true);
     return history.push("/win-side");
   }
 

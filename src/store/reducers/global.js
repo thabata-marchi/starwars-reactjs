@@ -5,6 +5,12 @@ export const globalReducer = (state, action) => {
         ...state,
         dataWinner: action.dataWinner,
       };
+
+    case 'LOAD':
+      return {
+        ...state,
+        loading: action.loading,
+      };  
   
     default:
       return state;
