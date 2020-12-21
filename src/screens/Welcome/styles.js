@@ -8,6 +8,10 @@ export const Content = styled.div`
   align-items: center;
   background-color: ${colors.white};
   min-height: 100vh;
+
+  @media (max-width: 610px) {
+    justify-content: center;
+  } 
 `
 
 export const Title = styled.h1`
@@ -17,6 +21,11 @@ export const Title = styled.h1`
   font-weight: 400;
   line-height: 88px;
   margin-top: 20%;
+  @media (max-width: 610px) {
+    margin: 0 0 10px;
+    line-height: 70px;
+  } 
+
 `
 export const TextBold = styled.strong`
   font-family: Lato;
